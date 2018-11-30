@@ -63,8 +63,32 @@ public class TestRunner {
 			Collections.sort(testerList);
 			
 			System.out.println("----------RESULTS-------------");
-			for(Tester t: testerList)
-				System.out.println(t);
+			
+			if(testerList.isEmpty()) {
+				System.out.println("Unable to find testers that match the search critera");
+				System.out.println("Country List:");
+				if(runner.countryStrings == null)
+					System.out.println("All");
+				else {
+					for(String s: runner.countryStrings) {
+						System.out.println(s);
+					}
+				}
+				
+				System.out.println("Device List:");
+				if(runner.deviceStrings == null)
+					System.out.println("All");
+				else {
+					for(String s: runner.deviceStrings) {
+						System.out.println(s);
+					}
+				}
+			}
+			
+			else {
+				for(Tester t: testerList)
+					System.out.println(t);
+			}
 			
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
